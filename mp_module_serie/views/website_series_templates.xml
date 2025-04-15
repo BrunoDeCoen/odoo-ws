@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="series_list_template" name="Series List">
+        <t t-call="website.layout">
+            <div class="container">
+                <div class="row">
+                    <t t-foreach="series" t-as="s">
+                        <div class="col-md-4">
+                            <a t-att-href="'/series/%s' % s.id">
+                                <img t-att-src="'/web/image/mp.serie/%s/afbeelding' % s.id" alt="Description" class="img-fluid"/>
+                                <h3 t-esc="s.titel"/>
+                            </a>
+                        </div>
+                        <div class="col-md-8">
+                            <pre>
+                                <p t-esc="s.omschrijving" />
+                            </pre>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="series_detail_template" name="Series Detail">
+        <t t-call="website.layout">
+            <div class="container">
+                <t t-set="s" t-value="series"/>
+                <h1 t-esc="s.titel"/>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img t-att-src="'/web/image/mp.serie/%s/afbeelding' % s.id" alt="Description" class="img-fluid"/>
+                    </div>
+                    <div class="col-md-8">
+                        <p t-esc="s.tag" class="text-muted"/>
+                        <pre>
+                            <p t-esc="s.omschrijving"/>
+                        </pre>
+                        <t t-if="'Portal' in [group.name for group in request.env.user.groups_id]">
+                            <h3>Documents</h3>
+                            <ul>
+                                <t t-if="'Professional' in [tag.name for tag in request.env.user.partner_id.category_id]">
+                                    <t t-set="filtered_docs" t-value="s.document_ids.filtered(lambda d: d.type == 'professional')"/>
+                                    <t t-foreach="filtered_docs" t-as="doc">
+                                        <li>
+                                            <a t-attf-href="/document/download?id={{ doc.id }}&amp;filename=document.pdf">
+                                                <span t-esc="doc.naam" />
+                                            </a>
+                                        </li>
+                                    </t>
+                                </t>
+                                <t t-if="'Architect' in [tag.name for tag in request.env.user.partner_id.category_id]">
+                                    <t t-set="filtered_docs" t-value="s.document_ids.filtered(lambda d: d.type == 'architect')"/>
+                                    <t t-foreach="filtered_docs" t-as="doc">
+                                        <li>
+                                            <a t-att-href="'/web/binary/%s?download=true' % doc.id" target="_blank">
+                                                <span t-esc="doc.naam" />
+                                            </a>
+                                        </li>
+                                    </t>
+                                </t>
+                            </ul>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

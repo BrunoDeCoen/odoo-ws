@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="mp_serie_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>MP Serie Report</h2>
+                    <table class="table table-condensed">
+                        <t t-foreach="docs" t-as="doc">
+                            <tr>
+                                <th>Title</th>
+                                <td><t t-esc="doc.titel"/></td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td><t t-esc="doc.omschrijving"/></td>
+                            </tr>
+                            <tr>
+                                <th>Tag</th>
+                                <td><t t-esc="doc.tag"/></td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

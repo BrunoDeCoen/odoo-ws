@@ -1,0 +1,23 @@
+- Add series 
+- Add documents - 2 types
+  - Architect
+  - Professional
+- Add users / modify password and give access to portal
+  - architect@test.be 
+  - professional@test.be
+- In the contacts module, modify the corresponding contacts => add tags
+  - Architect
+  - Professional
+  Connect the contacts to the correct tags
+- In the website module, modify the top menu. Add a link to /series
+- Now login as one of the created users and navigate to the website / series link.
+  When you open one of the series, only the docs for your usertype should be visible
+
+Note:
+The files are not automatically visible on the portal. You have to change the rights
+- Navigate to Settings - Users & companies - Groups
+- Search for group with name Portal 
+- In the tab ‘Access rights’ click ‘Add line'
+- Give descriptive name, select MP Serie model and check 'Read access'
+- To be able to download the documents, the Portal user should also recieve 'Read' 
+  rights to the MP Document model. The procedure is the same as described above.

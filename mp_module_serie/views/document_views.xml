@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mp_document_view_list" model="ir.ui.view">
+        <field name="name">mp.document.view.list</field>
+        <field name="model">mp.document</field>
+        <field name="arch" type="xml">
+            <list string="Document list">
+                <field name="naam"/>
+                <field name="omschrijving"/>
+                <field name="type"/>
+                <field name="document"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="document_view_form" model="ir.ui.view">
+        <field name="name">document.view.form</field>
+        <field name="model">mp.document</field>
+        <field name="arch" type="xml">
+            <form string="Document view">
+                <sheet>
+                    <group>
+                        <group>
+                            <separator string="Gegevens" />
+                            <field name="naam" />
+                            <field name="omschrijving" />
+                            <field name="type" widget="radio" />
+                        </group>
+                        <group>
+                            <separator string="Document" />
+                            <field name="document" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,8 @@
+<odoo>
+    <record id="group_serie_manager" model="res.groups">
+        <field name="name">Serie Manager</field>
+    </record>
+    <record id="group_document_manager" model="res.groups">
+        <field name="name">DocumentManager</field>
+    </record>
+</odoo>

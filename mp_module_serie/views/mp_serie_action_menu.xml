@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Action Menu Item for Display Error -->
+        <record id="action_display_error" model="ir.actions.server">
+            <field name="name">Display Error</field>
+            <field name="model_id" ref="model_mp_serie"/>
+            <field name="binding_model_id" ref="model_mp_serie"/>
+            <field name="state">code</field>
+            <field name="code">action = model.action_display_error()</field>
+        </record>
+
+        <!-- Action Menu Item for Print Report -->
+        <record id="action_print_report" model="ir.actions.server">
+            <field name="name">Print Report</field>
+            <field name="model_id" ref="model_mp_serie"/>
+            <field name="binding_model_id" ref="model_mp_serie"/>
+            <field name="state">code</field>
+            <field name="code">action = model.action_print_report()</field>
+        </record>
+
+        <!-- Add the actions to the action menu -->
+        <record id="mp_serie_action_window" model="ir.actions.act_window">
+            <field name="name">MP Serie</field>
+            <field name="res_model">mp.serie</field>
+            <field name="view_mode">tree,form</field>
+            <field name="binding_model_id" ref="model_mp_serie"/>
+            <field name="context">{}</field>
+        </record>
+
+        <!-- Include the actions in the form view action menu -->
+        <!--<record id="mp_serie_form_view" model="ir.ui.view">
+            <field name="name">mp.serie.form</field>
+            <field name="model">mp.serie</field>
+            <field name="inherit_id" ref="mp_module_serie.serie_view_form"/>
+            <field name="arch" type="xml">
+                <form string="MP Serie">
+                    <header>
+                        <button name="%(action_display_error)d" type="action" class="btn-primary" string="Display Error"/>
+                        <button name="%(action_print_report)d" type="action" class="btn-primary" string="Print Report"/>
+                    </header>
+                </form>
+            </field>
+        </record>-->
+    </data>
+</odoo>

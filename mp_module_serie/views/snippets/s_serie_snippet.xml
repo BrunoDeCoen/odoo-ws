@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_serie_snippet" name="Serie overzicht">
+        <section>
+            <div class="container">
+                <t t-if="request.env['mp.serie'].search([])">
+                    <t t-foreach="request.env['mp.serie'].search([])" t-as="serie">
+                        <h3 t-esc="serie.titel"/>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a t-att-href="'/series/%s' % serie.id">
+                                    <img t-att-src="'/web/image/mp.serie/%s/afbeelding' % serie.id" alt="Description"/>
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <pre>
+                                    <p t-esc="serie.omschrijving" />
+                                </pre>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+                <t t-else="">
+                    <p>No data found!</p>
+                </t>
+            </div>
+        </section>
+    </template>
+</odoo>

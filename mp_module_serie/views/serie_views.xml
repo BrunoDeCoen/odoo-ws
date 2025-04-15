@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="serie_view_list" model="ir.ui.view">
+        <field name="name">serie.view.list</field>
+        <field name="model">mp.serie</field>
+        <field name="arch" type="xml">
+            <list string="Serie list">
+                <field name="titel"/>
+                <field name="tag"/>
+                <field name="afbeelding"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="serie_view_form" model="ir.ui.view">
+        <field name="name">serie.view.form</field>
+        <field name="model">mp.serie</field>
+        <field name="arch" type="xml">
+            <form string="Serie view">
+                <header>
+                    <button name="action_display_error" type="object" string="Display error" class="btn-primary"/>
+                    <button name="action_print_report" type="object" string="Print PDF" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <separator string="Gegevens" />
+                            <field name="titel" />
+                            <field name="omschrijving" />
+                            <field name="tag" />
+                        </group>
+                        <group>
+                            <separator string="Afbeelding" />
+                            <field name="afbeelding" widget="image" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="documents" string="Documenten">
+                            <field name="document_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

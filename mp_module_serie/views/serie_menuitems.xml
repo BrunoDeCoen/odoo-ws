@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="serie_list_actions" model="ir.actions.act_window">
+        <field name="name">Serie list</field>
+        <field name="res_model">mp.serie</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first serie
+            </p>
+        </field>
+    </record>
+
+    <record id="document_list_actions" model="ir.actions.act_window">
+        <field name="name">Document list</field>
+        <field name="res_model">mp.document</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first document
+            </p>
+        </field>
+    </record>
+
+    <menuitem name="Series" id="menu_serie" sequence="1">
+        <menuitem name="Series" id="menu_serie_sub" sequence="1">
+            <menuitem name="Series" id="menu_serie_home" sequence="1" action="serie_list_actions" />
+            <menuitem name="Documents" id="menu_documents_home" sequence="2" action="document_list_actions" />
+        </menuitem>
+    </menuitem>
+</odoo>
